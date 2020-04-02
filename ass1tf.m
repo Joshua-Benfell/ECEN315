@@ -13,12 +13,14 @@ sys = tf([200 0], [140 203 30]);
 figure(2)
 subplot(1,2,1)
 plot(T,Y)
-title("Theoretical Step Response")
+title("Numerical Step Response")
 xlabel("Time (s)")
 ylabel("V_{o} (V)")
 
 subplot(1,2,2)
-title("Numerical Step Response")
+y = (400./sqrt(24409)).*exp(T.*(-29/40)).*sinh((sqrt(3487).*T)./(40*sqrt(7)));
+plot(T,y)
+title("Theoretical Step Response")
 xlabel("Time (s)")
 ylabel("V_{o} (V)")
-stepFunction = (1: T >= 0)
+%stepFunction = (1: T >= 0);
