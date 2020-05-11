@@ -13,3 +13,4 @@ hold on
 sys2 = tf(0.0425, [1 2.45]);
 step(5 * sys2);
 % steady state is 0.0867 rads/sec
+legend("Angular Displacement TF", "Angular Velocity TF")

@@ -24,3 +24,4 @@ for p = percentages
     i = i + 1;
 end
 legend(Legend);
+ylabel("Actual Altitude \theta(t)")
