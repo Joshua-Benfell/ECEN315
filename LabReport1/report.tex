@@ -1,0 +1,87 @@
+\documentclass[a4paper, 12pt, compsoc]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,
+	citecolor = black,
+	urlcolor=cyan,
+}
+\crefname{appsec}{Appendix}{Appendices}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[section]{placeins}
+\usepackage[page]{appendix}
+\usepackage{lipsum}
+\usepackage{bookmark}
+
+
+%for code(MATLAB in particular)
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstset{
+    language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, 
+    keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=7pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},
+    emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+
+
+\graphicspath{{./pictures/}}
+
+\title{ECEN315 - Open Loop Response of a Motorised, Propellor Driven Pendulum}
+\author{Joshua Benfell - 300433229}
+
+\IEEEtitleabstractindextext{
+    \begin{abstract}
+        We propose
+    \end{abstract}
+}
+
+
+\begin{document}
+    \maketitle
+    \IEEEdisplaynontitleabstractindextext
+
+    \section{Introduction}\label{sec:intro}
+        The aim of this report is to derive a model for the open loop response of a motorised, propellor driven pendulum arm. 
+
+    \section{Background}\label{sec:bg}
+    \section{Methods}\label{sec:methods}
+    \section{Results}\label{sec:results}
+    \section{Discussion}\label{sec:discussion}
+    \section{Conclusion}\label{sec:conclusion}
+
+
+    \Urlmuskip=0mu plus 1mu\relax
+    \bibliography{bibliography}
+    \bibliographystyle{IEEEtran}
+    \pagebreak
+    \begin{appendices}
+        \crefalias{section}{appsec}
+        \section{Matlab Code}
+            \lstinputlisting{../lab2.m}
+            \lstinputlisting{../lab3.m}
+        \section{Risk Assessment}
+    \end{appendices}
+\end{document}
