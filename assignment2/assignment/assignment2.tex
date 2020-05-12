@@ -78,6 +78,13 @@
             \label{fig:q1}
         \end{figure}
 
+
+        By changing the value of a, the transfer function goes from over to underdamped. a values of 1 and 2 make the system over damped, 4 is critically damped and 8 makes it under damped, reflected by the overshoot. We can confirm the nature of the step responses by looking at the poles. When a is 1 or 2, the poles are real and negative but not the same, so we know that it's over damped. When a is 4, the poles are negative and equal, so it's critcally damped. Finally when a is 8, the poles are complex which introduces oscillatory factors to the response, and therefore the system is underdamped.   
+        \par
+        From the settling times we can see that the higher a is the faster the response settles. This makes sense as critically damped is the fastest that it can settle without oscillation, whereas over damped systems go slower and under damped systems are faster at rising, but if there's too much oscillation it will take a while to settle. Because there's small oscillation, it makes sense to settle faster than the critically dameped system.
+        \par
+        There appears to be two time constants for the over damped systems and 1 for the critically damped and under damped systems. I'm not entirely sure what this means but, the two time constants seems to indicate that there are multiple exponential components that are competing as they are different values. When the values are the same then the exponentials are similar.
+
     \section{Question 2}
 
         \lstinputlisting{../q2.m}
@@ -88,6 +95,14 @@
             \caption{Step Response of $\frac{\Theta_L(s)}{E_a(s)}$ and $\frac{\Omega_L(s)}{E_a(s)}$}
             \label{fig:q2}
         \end{figure}
+
+        The blue line in \cref{fig:q2} is the response for the transfer function in a. This transfer function just continues with a positive gradient after a step response is added. This makes sense as it is a motor, so unless you wrap around once you hit $2\pi$ radians, the displacement will technically always increase.
+        \par
+        This is reflected in part b. When we want to get the angular velocity over the applied voltage, we differentiate the function. To do this in the frequency domain, we multiply by s. This results in the following transfer function:
+        \begin{equation}
+            \frac{\Omega_L(s)}{E_a(s)} = \frac{0.0425}{s+2.45}
+        \end{equation}
+        This is a first order transfer functon that has a steady state of $0.01735 * E_a$. For a 5V step, this is a steady state gain of $0.0867 rads/sec$ which is how much the motor shaft spins every second.
 
     \section{Question 3}
 
@@ -113,6 +128,8 @@
             \label{fig:q3}
         \end{figure}
 
+        In \cref{fig:q3} the systems are assigned as follows, $G_1$ is blue, $G_2$ is Orange, $G_3$ is yellow (light brown). All systems are under damped but, $G_1$ and $G_3$ are the lest under damped, the overshoot the target a little bit and settle quickly. $G_2$ is severly under damped, it oscillates quite a lot before settling. 
+
     \section{Question 4}
 
         \lstinputlisting{../q4.m}
@@ -123,6 +140,8 @@
             \caption{Satellite Step Responses for various moments of inertia}
             \label{fig:q4}
         \end{figure}
+
+        As seen in \cref{fig:q4} the decrease in J causes a faster transient response and smaller overshoot which means faster settling. This is because the Satellite doesn't have enough damping. Any push in a direction may overshoot the target and requires a push in the other direction to keep heading towards it. When the Satellite has a higher moment of inertia it resists the angular change and torque more so requires more torque to slow down and move in the other direction. Which is why we see larger amplitudes for higher J. With lower J, it takes less time to slow, stop and start the Satellite turning.
 
     \section{Question 5 (6 in the handout)}
 
@@ -141,5 +160,7 @@
             \caption{PI Controller Stability with low steady state gain}
             \label{fig:q5b}
         \end{figure}
+
+        For the first part of this question, we can see in \cref{fig:q5a} that a gain controller of 7 provides no damping on the system. This indicates that anything higher than 7 will make the system unstable and this is the maximum value that can be used for stability.
 
 \end{document}
