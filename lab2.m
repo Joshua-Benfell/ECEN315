@@ -37,5 +37,4 @@ Gain = numerator/coef3
 steadyStateValue = Gain * stepCoefs
 
 SettlingTime = [stepResponseInfo(1:6).SettlingTime] %The inductance of the motor is likely too high which is causing the critical damping/overdamping and thus quick settling time.
-%steadyStateValue = [stepResponseInfo(1:6).Peak]
-%steadyStateGain = [stepResponseInfo(1:6).Peak] ./ stepCoefs %Not sure about this method
+damp(sys)
