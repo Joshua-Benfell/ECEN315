@@ -19,8 +19,8 @@ legend(Legend)
 
 figure(2)
 subplot(1,2,1)
-H = feedback(series(tf([0.1 0.1], [1 0]),  G), 1);
-step(H, 100);
-title("Step Response with Controller $$C = 0.1(1+\frac{1}{s})$$",'interpreter','latex')
+H = feedback(series(tf(1, [1 -1]),  G), 1);
+step(H, 10);
+title("Step Response with Controller $$C = +\frac{1}{s-1}$$",'interpreter','latex')
 subplot(1,2,2);
 pzmap(H);

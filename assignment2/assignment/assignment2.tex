@@ -63,10 +63,10 @@
             \begin{tabular}{r|c|r}
                 Step Size & Time Constants & Settling Time\\
                 \hline
-                1 & $\begin{pmatrix} 3.7321 \\ 0.2679 \end{pmatrix}$ & 14.879\\
-                2 & $\begin{pmatrix} 1.7071 \\ 0.2929 \end{pmatrix}$ & 6.9996\\
-                4 & $\begin{pmatrix} 5 \\ 5 \end{pmatrix}$ & 2.1970\\
-                8 & $\begin{pmatrix} 5 \\ 5 \end{pmatrix}$ & 2.1082
+                1 & $\sqrt{3.7321 \times 0.2679} = 0.9999$ & 14.879\\
+                2 & $\sqrt{1.7071 \times 0.2929} = 0.7071$ & 6.9996\\
+                4 & $\sqrt{0.5 \times 0.5} = 0.5$ & 2.1970\\
+                8 & $\sqrt{0.5 \times 0.5} = 0.5$ & 2.1082
 
             \end{tabular}
         \end{table}
@@ -83,7 +83,7 @@
         \par
         From the settling times we can see that the higher a is the faster the response settles. This makes sense as critically damped is the fastest that it can settle without oscillation, whereas over damped systems go slower and under damped systems are faster at rising, but if there's too much oscillation it will take a while to settle. Because there's small oscillation, it makes sense to settle faster than the critically dameped system.
         \par
-        There appears to be two time constants for the over damped systems and 1 for the critically damped and under damped systems. I'm not entirely sure what this means but, the two time constants seems to indicate that there are multiple exponential components that are competing as they are different values. When the values are the same then the exponentials are similar.
+        There appears to be two time constants for the over damped systems and 1 for the critically damped and under damped systems. By square rooting the product we can get a time constant for the system. The more damping on a system indicates multiple first order systems acting on it. Overdamped systems have two poles where one is dominant shown by the longer time constant and the other is not, meaning we could simplify the system to be first order. Critically damped systems having two time constants the same makes sense as the poles are in the same place, same goes for the underdamped system as those poles are complex conjugates. The lower the time constant seems to indicate a faster response, and it can be seen that the critical and under damped system settle in about the same time.
 
     \section{Question 2}
 
@@ -162,5 +162,8 @@
         \end{figure}
 
         For the first part of this question, we can see in \cref{fig:q5a} that a gain controller of 7 provides no damping on the system. This indicates that anything higher than 7 will make the system unstable and this is the maximum value that can be used for stability.
+        \par
+        For the second part of this question we can use a controller that introduces a pole with a positive real component. Doing this will make it unstable. Here I am using $C = \frac{1}{s-1}$, which has a steady state gain of 1.
+        
 
 \end{document}
