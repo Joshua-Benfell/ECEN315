@@ -36,14 +36,14 @@ coefs = model.Coefficients{:, 'Estimate'}; % Coefficients we are looking for
 A = coefs(1); % Our A coefficient
 B = coefs(2); % Our B coefficient
 
-j_p = (m*d*g) / (power(w,2)+power(B,2)) % moment of inertia we are looking for
-c = 2 * B * j_p % damping coeff we are looking for
+J_p = (m*d*g) / (power(w,2)+power(B,2)) % moment of inertia we are looking for
+c = 2 * B * J_p % damping coeff we are looking for
 
 % Transfer Function
 
-numerator = 1/j_p;
-coefB = c/j_p;
-coefC = (d*m*g)/j_p;
+numerator = 1/J_p;
+coefB = c/J_p;
+coefC = (d*m*g)/J_p;
 
 sys = tf(numerator, [1, coefB, coefC])
 figure(2)
@@ -67,9 +67,9 @@ coefCLab2 = (R_a * D_m + K_t * K_b)/(L_a * J_m);
 sysLab2 = tf(numeratorLab2 , [coefALab2 coefBLab2 coefCLab2]);
 ylabel("\theta (rads)")
 
-k_p = 0.0053;
+K_p = 0.0053;
 
-sys3 = sysLab2 * sys * k_p * r
+sys3 = sysLab2 * sys * K_p * r
 Leg = cell(3, 1);
 figure(3)
 hold on
@@ -80,3 +80,14 @@ end
 hold off
 ylabel("\theta (rads)")
 legend(Leg)
+
+
+%Algebra
+algFourth = J_p * J_m * L_a;
+algNum = K_t * K_p * r / algFourth;
+algThird = (J_m * J_p * R_a + J_p * D_m * L_a + J_m * L_a * c) / algFourth;
+algSecond = (R_a * D_m * J_p + K_t * K_b * J_p + J_m * R_a * c + D_m * L_a * c + d * m * g * J_m * L_a) / algFourth;
+algFirst = (R_a * D_m * c + K_t * K_b * c + d * m * g * J_m * R_a + d * m * g * D_m * L_a) / algFourth;
+algZeroth = (d * m * g * R_a * D_m + d * m * g * K_t * K_b) / algFourth;
+
+algSys = tf(algNum, [1 algThird algSecond algFirst algZeroth])
