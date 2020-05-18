@@ -1,3 +1,4 @@
+% MATLAB Code for Lab 3
 % Finding Coefficients from un-driven Damped pendulum
 clear
 clf
@@ -80,6 +81,11 @@ end
 hold off
 ylabel("\theta (rads)")
 legend(Leg)
+
+linearSystemAnalyzer(sys3 .* [3 4 5])
+
+figure(4)
+pzmap(sys3)
 
 
 %Algebra
