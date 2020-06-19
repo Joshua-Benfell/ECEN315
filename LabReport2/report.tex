@@ -1,0 +1,79 @@
+\documentclass[a4paper, 11pt, compsoc]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{
+	colorlinks = true,
+	linkcolor = blue,
+	filecolor = blue,
+	citecolor = black,
+	urlcolor = cyan,
+}
+\crefname{appsec}{Appendix}{Appendices}
+
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\usepackage{bookmark}
+\usepackage{gensymb}
+
+
+%for code(MATLAB in particular)
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstset{
+    language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, 
+    keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=7pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},
+    emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+
+
+\graphicspath{{./pictures/}}
+
+\title{ECEN315 - Compensating a Propeller Driven Pendulum }
+\author{Joshua Benfell - 300433229}
+
+\IEEEtitleabstractindextext{
+    \begin{abstract}
+    \end{abstract}
+}
+
+
+\begin{document}
+    \maketitle
+    \IEEEdisplaynontitleabstractindextext
+
+    \section{Introduction}\label{sec:intro}
+    \section{Background}\label{sec:bg}
+    \section{Compensators}\label{sec:comp}
+        \subsection{PI}\label{sec:pi}
+        \subsection{PD}\label{sec:pd}
+        \subsection{PID}\label{sec:pid}
+    \section{Discussion}\label{sec:disc}
+    \section{Conclusion}\label{sec:conc}
+
+    \Urlmuskip=0mu plus 1mu\relax
+    \bibliography{bibliography}
+    \bibliographystyle{IEEEtran}
+
+    \onecolumn
+    \appendices
+\end{document}
