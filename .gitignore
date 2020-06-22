@@ -76,6 +76,7 @@ lib/
 lib64/
 .cfg
 
+.vscode/
 
 #latex
 *.aux
